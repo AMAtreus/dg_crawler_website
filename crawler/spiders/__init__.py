@@ -21,7 +21,7 @@ class BaseSpider(scrapy.Spider):
     time = None # 截止时间
     proxy = '00' # 默认proxy
     mini_logger = None # 自带logger
-
+    is_http = 0 # 默认为0
 
 
     def __init__(self, **kwargs):

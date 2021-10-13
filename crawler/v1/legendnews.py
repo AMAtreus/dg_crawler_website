@@ -21,8 +21,7 @@ class LegendnewsSpider(BaseSpider):
         'password': 'dg_admin',
         'db': 'dg_crawler'
     }
-
-    
+    proxy = '01'
           
         
 
@@ -53,7 +52,7 @@ class LegendnewsSpider(BaseSpider):
                 break
         if flag:
             nextPage = soup.select_one('.previous a').get('href')
-            yield Request(nextPage, meta=response.meta, callback=self.parse)
+            yield Request(nextPage, meta=response.meta, callback=self.parse_essay)
 
     def parse_item(self, response):
         soup = BeautifulSoup(response.text, 'html.parser')
